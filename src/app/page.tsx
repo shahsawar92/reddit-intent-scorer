@@ -1,3 +1,4 @@
+import { Integrate } from "@/components/Integrate";
 import { Footer, Header, Hero } from "@/components/Chrome";
 import { Radar } from "@/components/Radar";
 import { APP } from "@/app.config";
@@ -38,6 +39,20 @@ export default function Page() {
             a reply.
           </p>
         </section>
+        <Integrate
+          c={{
+            title: "Get your Reddit leads delivered instead",
+            intro: "The demo scores one search at a time. Your version watches Reddit for you and only tells you about the posts worth replying to.",
+            options: [
+              { name: "Always-on monitoring", detail: "Your subreddits and keywords are checked around the clock, and every new post is scored against your product." },
+              { name: "Alerts where you work", detail: "Hot leads arrive by email, Slack or WhatsApp with the score, the reason and a suggested reply angle." },
+              { name: "Send leads to your CRM", detail: "Push qualified posts into HubSpot, Pipedrive, Notion or a Google Sheet so your sales process picks them up." },
+              { name: "Tuned to your product", detail: "The scoring rubric is adjusted with examples of what a good lead looks like for you, so fewer false alarms reach you." },
+            ],
+            needs: ["A short description of your product and ideal customer", "The subreddits and keywords to watch", "Where alerts should go"],
+            timeline: "Monitoring and alerts running in about a week.",
+          }}
+        />
       </main>
       <Footer />
     </>
