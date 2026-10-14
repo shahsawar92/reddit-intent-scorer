@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { gemini, MODEL } from "@/lib/gemini";
+import { generate, MODEL } from "@/lib/gemini";
 import type { Post } from "@/lib/reddit";
 
 export const INTENTS = [
@@ -74,8 +74,7 @@ export async function scorePosts(product: string, posts: Post[]) {
     .map((p) => `<post id="${p.id}">\nTitle: ${p.title}\nBody: ${p.body || "(no body)"}\n</post>`)
     .join("\n\n");
 
-  const response = await gemini().models.generateContent({
-    model: MODEL,
+  const response = await generate({
     contents: [{ role: "user", parts: [{ text: `Seller's product:\n${product}\n\nPosts:\n${input}` }] }],
     config: {
       systemInstruction: `You qualify sales leads from Reddit.\n${RUBRIC}\nReturn one result per post id.`,
